@@ -1,9 +1,17 @@
 import Head from "next/head";
+import dynamic from 'next/dynamic'
 import RootLayout from "@/components/Layouts/RootLayout";
-import Banner from "@/components/UI/Banner";
+// import Banner from "@/components/UI/Banner";
 import AllNews from "@/components/UI/AllNews";
 
+
+
 const HomePage = ({ allNews }) => {
+
+  const DynamicBanner = dynamic(() => import('@/components/UI/Banner'), {
+    loading: () => <p style={{color:"red", fontSize:"100px", textAlign:"center", marginTop:"75px"}}>Loading......</p>,
+  })
+
   return (
     <>
       <Head>
@@ -15,7 +23,7 @@ const HomePage = ({ allNews }) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Banner />
+      <DynamicBanner />
       <AllNews allNews={allNews} />
     </>
   );
