@@ -4,8 +4,6 @@ import Banner from "@/components/UI/Banner";
 import AllNews from "@/components/UI/AllNews";
 
 const HomePage = ({ allNews }) => {
-  console.log("allNews", allNews);
-
   return (
     <>
       <Head>
@@ -18,7 +16,7 @@ const HomePage = ({ allNews }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Banner />
-      <AllNews />
+      <AllNews allNews={allNews} />
     </>
   );
 };
@@ -36,5 +34,6 @@ export const getStaticProps = async () => {
     props: {
       allNews,
     },
+    revalidate: 5,
   };
 };
