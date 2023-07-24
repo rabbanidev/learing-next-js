@@ -24,9 +24,6 @@ const newsHandler = async (req, res) => {
           .status(400)
           .json({ status: "failed", message: error.message });
       }
-
-    
-
     default:
       return res.status(400).json({ message: "This method is not supported" });
   }
