@@ -10,6 +10,7 @@ const HomePage = ({ allNews }) => {
 
   const DynamicBanner = dynamic(() => import('@/components/UI/Banner'), {
     loading: () => <p style={{color:"red", fontSize:"100px", textAlign:"center", marginTop:"75px"}}>Loading......</p>,
+    ssr:false,
   })
 
   return (
